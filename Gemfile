@@ -9,13 +9,15 @@ gem 'rails', '3.1.0'
 group :development, :test do
   gem 'sqlite3'
   gem 'ruby-debug19', :require => 'ruby-debug'
-  gem 'cucumber-rails'
+  gem 'cucumber-rails', :require => false
   gem 'cucumber-rails-training-wheels'
   gem 'database_cleaner'
   gem 'capybara'
   gem 'launchy'
   gem 'rspec-rails'
-  gem 'simplecov'
+  gem 'simplecov', :require => false
+  gem 'ZenTest'
+  gem 'factory_girl_rails'
 end
 group :production do
   gem 'pg'
@@ -40,3 +42,5 @@ gem 'jquery-rails'
 
 # To use debugger
 gem 'haml'
+
+gem 'ruby-tmdb'

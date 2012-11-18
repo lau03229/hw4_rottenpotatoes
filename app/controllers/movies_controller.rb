@@ -64,4 +64,23 @@ class MoviesController < ApplicationController
     redirect_to movies_path
   end
 
+  def search_tmdb
+
+    @movies = Movie.find_in_tmdb(params[:search_terms])
+
+  end
+
+  def search_similar
+
+    @movie = Movie.find_by_id(params[:id])
+
+    if @movie.director != ""
+      @movies = Movie.find_all_by_director(@movie.director)
+    else
+      flash[:notice] = "'#{@movie.title}' has no director info"
+      redirect_to movies_path
+    end
+
+  end
+
 end
